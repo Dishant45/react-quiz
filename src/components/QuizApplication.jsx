@@ -33,6 +33,11 @@ class QuizApp extends Component {
       this.setState({ value: this.state.value + 1 });
     }
   };
+  previousQuiz = (event) => {
+    if (this.state.value > 0) {
+      this.setState({ value: this.state.value - 1 });
+    }
+  };
   render() {
     return (
       <div>
@@ -42,6 +47,7 @@ class QuizApp extends Component {
           <div>
             <Question question={this.state.questions[this.state.value]} />
             <button onClick={this.nextQuiz}>Next</button>
+            <button onClick={this.previousQuiz}>Previous</button>
           </div>
         ) : (
           <div>
