@@ -2,6 +2,7 @@ import { Component } from "react";
 import questions from "../data/question";
 import Instruction from "./Instruction";
 import Question from "./Question";
+import CountDown from "./Countdown";
 // import Button from "./Button";
 
 class QuizApp extends Component {
@@ -35,6 +36,7 @@ class QuizApp extends Component {
           <Question question={this.state.questions[0]} />
         ) : (
           <div>
+            <CountDown />
             <Instruction />
             {/* <Button /> */}
             <button onClick={this.startQuiz}>Start Quiz</button>

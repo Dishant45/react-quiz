@@ -8,7 +8,7 @@ class CountDown extends Component {
   incrementCounter = (event) => {
     setInterval(() => {
       this.setState({ sec: this.state.sec + 1 });
-      if (this.state.sec == 60) {
+      if (this.state.sec === 60) {
         this.setState({ sec: 0 });
         this.setState({ min: this.state.min + 1 });
       }
@@ -17,9 +17,9 @@ class CountDown extends Component {
 
   render() {
     return (
-      <P>
+      <p>
         Time:{this.state.min}:{this.state.sec}
-      </P>
+      </p>
     );
   }
 }
