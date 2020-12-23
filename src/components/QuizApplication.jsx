@@ -9,6 +9,7 @@ class QuizApp extends Component {
   state = {
     isQuizStarted: false,
     questions: "",
+    value: 0,
   };
   componentDidMount() {
     let quizQuestions = questions.map((question) => {
@@ -27,16 +28,23 @@ class QuizApp extends Component {
   startQuiz = (event) => {
     this.setState({ isQuizStarted: true });
   };
-
+  nextQuiz = (event) => {
+    if (this.state.value < 4) {
+      this.setState({ value: this.state.value + 1 });
+    }
+  };
   render() {
     return (
       <div>
         <h1>Quiz Application</h1>
+        <CountDown />
         {this.state.isQuizStarted ? (
-          <Question question={this.state.questions[0]} />
+          <div>
+            <Question question={this.state.questions[this.state.value]} />
+            <button onClick={this.nextQuiz}>Next</button>
+          </div>
         ) : (
           <div>
-            <CountDown />
             <Instruction />
             {/* <Button /> */}
             <button onClick={this.startQuiz}>Start Quiz</button>
